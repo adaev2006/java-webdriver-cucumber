@@ -7,6 +7,9 @@ Feature: Java feature
     And I perform actions with "my var" and "my VAR"
 
   @java2
-  Scenario: Conditions
-    And I print if number 2 is positive
+  Scenario: HW 5
+    And I print if number 35 is positive
     And I print 5 th day of week
+    And I calculate numbers
+    And I print url for "yahoo" page
+    And I do exercises with arrays

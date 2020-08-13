@@ -1,6 +1,9 @@
 package definitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.When;
+
+import java.awt.geom.QuadCurve2D;
 
 public class JavaStepDefs {
     @And("I say {string}")
@@ -47,5 +50,56 @@ public class JavaStepDefs {
         } else {
             System.out.println("Sunday");
         }
+    }
+
+    @And("I calculate numbers")
+    public void iCalculateNumbers() {
+        int a = 10;
+        int b = 3;
+        float c = 3f;
+        System.out.println(a / b);
+        System.out.println(a / c);
+        // dividing int by int will give us an int; dividing int by float will give us a float
+        int num1 = 1220;
+        int num2 = 36;
+        int sum = num1 + num2;
+        int difference = num1 - num2;
+        int quotient = num1 / num2;
+        int product = num1 * num2;
+        System.out.println(sum);
+        System.out.println(difference);
+        System.out.println(quotient);
+        System.out.println(product);
+        String favoriteColor = "Black";
+        String notFavoriteColor = "White";
+        System.out.println(favoriteColor == notFavoriteColor);
+    }
+
+    @And("I print url for {string} page")
+    public void iPrintUrlForPage(String site) {
+        switch (site) {
+            case "yahoo":
+                System.out.println("https://www.yahoo.com/");
+                break;
+            case "google":
+                System.out.println("https://www.google.com/");
+                break;
+            case "amazon":
+                System.out.println("https://www.amazon.com/");
+                break;
+            default:
+                System.out.println("Unsupported page: " + site);
+        }
+    }
+
+    @And("I do exercises with arrays")
+    public void iDoExercisesWithArrays() {
+        String [] groceryList = {"apple", "banana", "pear", "strawberry"};
+        System.out.println(groceryList);
+        //when I print out the array using System.out.println, I get [Ljava.lang.String;@1fa268de which is the array's address in memeory stack
+        System.out.println(groceryList [0]);
+        // index [0] is "apple", because arrays have zero-based indexing
+        System.out.println(groceryList [2]);
+        // index [2] is pear, because it's a third item in the index
     }
 }
