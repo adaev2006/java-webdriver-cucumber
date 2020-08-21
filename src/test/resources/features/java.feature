@@ -8,8 +8,12 @@ Feature: Java feature
 
   @java2
   Scenario: HW 5
-    And I print if number 35 is positive
+    Given I print if number 35 is positive
     And I print 5 th day of week
     And I calculate numbers
     And I print url for "yahoo" page
     And I do exercises with arrays
+
+  @java3
+  Scenario: HW 6
+    Given I work with HashMap

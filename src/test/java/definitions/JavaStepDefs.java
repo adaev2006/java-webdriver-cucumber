@@ -1,9 +1,12 @@
 package definitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
 import java.awt.geom.QuadCurve2D;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class JavaStepDefs {
     @And("I say {string}")
@@ -24,7 +27,7 @@ public class JavaStepDefs {
         System.out.println(str1.contains(str2));
     }
 
-    @And("I print if number {int} is positive")
+    @Given("I print if number {int} is positive")
     public void iPrintIfNumberIsPositive(int number) {
         if (number == 35) {
             System.out.println("Number " + number + " is positive");
@@ -101,5 +104,21 @@ public class JavaStepDefs {
         // index [0] is "apple", because arrays have zero-based indexing
         System.out.println(groceryList [2]);
         // index [2] is pear, because it's a third item in the index
+    }
+
+    @Given("I work with HashMap")
+    public void iWorkWithHashMap() {
+        Map <String, String> info = new LinkedHashMap<>();
+        info.put("firstName", "John");
+        info.put("middleName", "George");
+        swapMap(info);
+    }
+    void swapMap(Map <String, String> info) {
+        System.out.println("map before changes: " + info);
+        String firstName = info.get("middleName");
+        String middleName = info.get("firstName");
+        info.put("firstName", firstName);
+        info.put("middleName", middleName);
+        System.out.println("map after changes " + info);
     }
 }
